@@ -37,7 +37,7 @@ function Footer() {
       <p>
         Weather data from{" "}
         <a
-          href="https://open-meteo.com/"
+          href="https://github.com/etkramer/open-meteo-typescript"
           target="_blank"
           rel="noopener noreferrer"
         >

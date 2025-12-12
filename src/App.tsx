@@ -6,20 +6,13 @@ import ForecastGrid from "./components/ForecastGrid";
 import Hero from "./components/Hero";
 import type { Forecast, Theme } from "./types";
 
-const spin = keyframes`
-  25% { transform: rotate(90deg) }
-  50% { transform: rotate(180deg) }
-  75% { transform: rotate(270deg) }
-  100% { transform: rotate(360deg) }
+const pulse = keyframes`
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 `;
 
-const Spinner = styled.div`
-  animation: ${spin} 1.5s linear infinite;
-  border-radius: 50%;
-  border: 10px solid white;
-  border-top-color: transparent;
-  height: 100px;
-  width: 100px;
+const LoadingText = styled.h1`
+  animation: ${pulse} 2s ease-in-out infinite;
 `;
 
 const Main = styled.main`
@@ -40,6 +33,10 @@ const Main = styled.main`
 
   &.blue {
     background: #0961e6;
+  }
+
+  &.load {
+    background: #333333;
   }
 
   h1 {
@@ -147,8 +144,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       {loading ? (
-        <Main>
-          <Spinner />
+        <Main className="load">
+          <LoadingText>divining...</LoadingText>
         </Main>
       ) : forecast ? (
         <>

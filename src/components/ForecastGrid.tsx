@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import ForecastCard from './ForecastCard'
+import type { Forecast } from '../types'
 
 const Grid = styled.section`
   background: ${props => props.theme.lightGray};
@@ -22,7 +23,11 @@ const Grid = styled.section`
   }
 `
 
-function ForecastGrid({ forecast }) {
+interface ForecastGridProps {
+  forecast: Forecast
+}
+
+function ForecastGrid({ forecast }: ForecastGridProps) {
   return (
     <Grid>
       {forecast?.daily?.map(day => (

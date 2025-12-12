@@ -3,6 +3,7 @@ import styled, { ThemeProvider, keyframes } from 'styled-components'
 import ForecastGrid from './components/ForecastGrid'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
+import type { Forecast, Theme } from './types'
 
 const spin = keyframes`
   25% { transform: rotate(90deg) }
@@ -60,21 +61,31 @@ const Main = styled.main`
   }
 `
 
-const theme = {
+const theme: Theme = {
   lightGray: '#eeeeee',
   darkGray: '#979797'
+}
+
+interface OpenMeteoResponse {
+  daily: {
+    time: string[]
+    temperature_2m_max: number[]
+    temperature_2m_min: number[]
+    snowfall_sum: number[]
+    weather_code: number[]
+  }
 }
 
 // NYC coordinates: 40.7275, -74.0053
 const API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=40.7275&longitude=-74.0053&daily=temperature_2m_max,temperature_2m_min,snowfall_sum,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York'
 
-async function fetchForecast() {
+async function fetchForecast(): Promise<Forecast | null> {
   try {
     const response = await fetch(API_URL)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
-    const data = await response.json()
+    const data: OpenMeteoResponse = await response.json()
 
     // Transform to match expected format
     const daily = data.daily.time.map((date, i) => ({
@@ -97,7 +108,7 @@ async function fetchForecast() {
   }
 }
 
-function getWeatherIcon(code) {
+function getWeatherIcon(code: number): string {
   // WMO Weather interpretation codes
   // https://open-meteo.com/en/docs
   if (code === 0) return 'clear-day'
@@ -116,7 +127,7 @@ function getWeatherIcon(code) {
 }
 
 function App() {
-  const [forecast, setForecast] = useState(null)
+  const [forecast, setForecast] = useState<Forecast | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

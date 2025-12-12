@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import type { Forecast } from '../types'
 
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {
@@ -35,7 +36,11 @@ const ScrollHint = styled.h2`
   }
 `
 
-function Hero({ forecast }) {
+interface HeroProps {
+  forecast: Forecast
+}
+
+function Hero({ forecast }: HeroProps) {
   const coldMessage = (
     <h2>
       {forecast.willItBeCold && !forecast.willItSnow && 'But it will be cold. '}

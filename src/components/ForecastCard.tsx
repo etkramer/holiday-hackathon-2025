@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import dayjs from 'dayjs'
+import type { DailyForecast } from '../types'
 
 const Card = styled.div`
   background: white;
@@ -40,7 +41,11 @@ const WeatherIcon = styled.img`
   width: 96px;
 `
 
-function ForecastCard({ forecast }) {
+interface ForecastCardProps {
+  forecast: DailyForecast
+}
+
+function ForecastCard({ forecast }: ForecastCardProps) {
   const base = import.meta.env.BASE_URL
   return (
     <Card>

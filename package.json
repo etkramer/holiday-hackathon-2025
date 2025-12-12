@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "dayjs": "^1.11.19",
+    "open-meteo": "github:stainless-sdks/open-meteo-typescript",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "styled-components": "^6.1.19"

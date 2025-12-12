@@ -41,12 +41,13 @@ const WeatherIcon = styled.img`
 `
 
 function ForecastCard({ forecast }) {
+  const base = import.meta.env.BASE_URL
   return (
     <Card>
       <CardHeader>
         <h1>{dayjs(forecast.date).format('ddd D')}</h1>
         <WeatherIcon
-          src={`/images/${forecast.icon}.svg`}
+          src={`${base}images/${forecast.icon}.svg`}
           alt={forecast.icon}
         />
         <h2>Hi: {Math.ceil(forecast.temperatureMax)}° F</h2>
@@ -58,10 +59,10 @@ function ForecastCard({ forecast }) {
       <CardBody>
         <div>
           {forecast.willItSnow && (
-            <img src="/images/kermit-panic.gif" alt="Kermit Panic" />
+            <img src={`${base}images/kermit-panic.gif`} alt="Kermit Panic" />
           )}
           {!forecast.willItSnow && (
-            <img src="/images/kermit-calm.gif" alt="Kermit Calm" />
+            <img src={`${base}images/kermit-calm.gif`} alt="Kermit Calm" />
           )}
         </div>
       </CardBody>

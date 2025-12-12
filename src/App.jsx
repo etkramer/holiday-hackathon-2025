@@ -65,8 +65,8 @@ const theme = {
   darkGray: '#979797'
 }
 
-// NYC coordinates: 40.7128, -74.0060
-const API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&daily=temperature_2m_max,temperature_2m_min,snowfall_sum,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York'
+// NYC coordinates: 40.7275, -74.0053
+const API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=40.7275&longitude=-74.0053&daily=temperature_2m_max,temperature_2m_min,snowfall_sum,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York'
 
 async function fetchForecast() {
   try {

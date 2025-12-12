@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components'
-import type { Forecast } from '../types'
+import styled, { keyframes } from "styled-components";
+import type { Forecast } from "../types";
 
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {
@@ -17,7 +17,7 @@ const bounce = keyframes`
   90% {
     transform: translate3d(0, -4px, 0);
   }
-`
+`;
 
 const ScrollHint = styled.h2`
   animation: ${bounce} 1.5s ease-in-out;
@@ -34,39 +34,30 @@ const ScrollHint = styled.h2`
     font-size: 1rem;
     margin-bottom: 1em;
   }
-`
+`;
 
 interface HeroProps {
-  forecast: Forecast
+  forecast: Forecast;
 }
 
 function Hero({ forecast }: HeroProps) {
   const coldMessage = (
     <h2>
-      {forecast.willItBeCold && !forecast.willItSnow && 'But it will be cold. '}
-      Please consider{' '}
-      <a
-        href="https://www.coalitionforthehomeless.org/take-action/donate/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        donating to help NYC's homeless
-      </a>
-      .
+      {forecast.willItBeCold && !forecast.willItSnow && "But it will be cold."}
     </h2>
-  )
+  );
 
-  const showColdMessage = forecast.willItBeCold || forecast.willItSnow
+  const showColdMessage = forecast.willItBeCold || forecast.willItSnow;
 
   return (
     <>
-      <h1>{forecast && forecast.willItSnow ? 'YES' : 'No'}</h1>
+      <h1>{forecast && forecast.willItSnow ? "YES" : "No"}</h1>
       {showColdMessage && coldMessage}
       <ScrollHint>
         ↓<span>see forecast</span>
       </ScrollHint>
     </>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

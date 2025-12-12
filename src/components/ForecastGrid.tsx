@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import ForecastCard from './ForecastCard'
-import type { Forecast } from '../types'
+import styled from "styled-components";
+import type { Forecast } from "../types";
+import ForecastCard from "./ForecastCard";
 
 const Grid = styled.section`
-  background: ${props => props.theme.lightGray};
-  color: ${props => props.theme.darkGray};
+  background: ${(props) => props.theme.lightGray};
+  color: ${(props) => props.theme.darkGray};
   display: grid;
   grid-row-gap: 1em;
   padding: 1em;
@@ -21,20 +21,20 @@ const Grid = styled.section`
   @media (min-width: 1440px) {
     grid-template-columns: repeat(7, 1fr);
   }
-`
+`;
 
 interface ForecastGridProps {
-  forecast: Forecast
+  forecast: Forecast;
 }
 
 function ForecastGrid({ forecast }: ForecastGridProps) {
   return (
     <Grid>
-      {forecast?.daily?.map(day => (
+      {forecast?.daily?.map((day) => (
         <ForecastCard key={day.date} forecast={day} />
       ))}
     </Grid>
-  )
+  );
 }
 
-export default ForecastGrid
+export default ForecastGrid;

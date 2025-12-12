@@ -38,8 +38,8 @@ const Main = styled.main`
     background: green;
   }
 
-  &.red {
-    background: red;
+  &.blue {
+    background: #0961e6;
   }
 
   h1 {
@@ -152,7 +152,7 @@ function App() {
         </Main>
       ) : forecast ? (
         <>
-          <Main className={forecast.willItSnow ? "red" : "green"}>
+          <Main className={forecast.willItSnow ? "blue" : "green"}>
             <Hero forecast={forecast} />
           </Main>
           <ForecastGrid forecast={forecast} />

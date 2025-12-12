@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import dayjs from 'dayjs'
-import type { DailyForecast } from '../types'
+import dayjs from "dayjs";
+import styled from "styled-components";
+import type { DailyForecast } from "../types";
 
 const Card = styled.div`
   background: white;
-  border: 1px solid ${props => props.theme.darkGray};
+  border: 1px solid ${(props) => props.theme.darkGray};
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -21,11 +21,11 @@ const Card = styled.div`
     font-weight: 300;
     margin-bottom: 0;
   }
-`
+`;
 
 const CardHeader = styled.div`
   margin: auto;
-`
+`;
 
 const CardBody = styled.div`
   display: flex;
@@ -33,24 +33,24 @@ const CardBody = styled.div`
   flex-grow: 1;
   justify-content: center;
   margin: 1em auto 0 auto;
-`
+`;
 
 const WeatherIcon = styled.img`
   height: 96px;
   margin: 0 auto;
   width: 96px;
-`
+`;
 
 interface ForecastCardProps {
-  forecast: DailyForecast
+  forecast: DailyForecast;
 }
 
 function ForecastCard({ forecast }: ForecastCardProps) {
-  const base = import.meta.env.BASE_URL
+  const base = import.meta.env.BASE_URL;
   return (
     <Card>
       <CardHeader>
-        <h1>{dayjs(forecast.date).format('ddd D')}</h1>
+        <h1>{dayjs(forecast.date).format("ddd D")}</h1>
         <WeatherIcon
           src={`${base}images/${forecast.icon}.svg`}
           alt={forecast.icon}
@@ -72,7 +72,7 @@ function ForecastCard({ forecast }: ForecastCardProps) {
         </div>
       </CardBody>
     </Card>
-  )
+  );
 }
 
-export default ForecastCard
+export default ForecastCard;

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  background: ${props => props.theme.lightGray};
-  color: ${props => props.theme.darkGray};
+  background: ${(props) => props.theme.lightGray};
+  color: ${(props) => props.theme.darkGray};
   padding: 1em;
   text-align: center;
 
@@ -19,13 +19,13 @@ const FooterWrapper = styled.footer`
       width: 50%;
     }
   }
-`
+`;
 
 function Footer() {
   return (
     <FooterWrapper>
       <p>
-        Inspired by{' '}
+        Inspired by{" "}
         <a
           href="https://www.willitsnowinpdx.com"
           target="_blank"
@@ -35,7 +35,7 @@ function Footer() {
         </a>
       </p>
       <p>
-        Weather data from{' '}
+        Weather data from{" "}
         <a
           href="https://open-meteo.com/"
           target="_blank"
@@ -45,18 +45,18 @@ function Footer() {
         </a>
       </p>
       <p>
-        Icons from{' '}
+        Icons from{" "}
         <a
           href="https://www.iconfinder.com/iconsets/weather-line-19"
           target="_blank"
           rel="noopener noreferrer"
         >
           Fatkhul Karim
-        </a>{' '}
+        </a>{" "}
         under Creative Commons 3.0
       </p>
     </FooterWrapper>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

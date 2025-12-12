@@ -25,16 +25,6 @@ function Footer() {
   return (
     <FooterWrapper>
       <p>
-        Created by{" "}
-        <a
-          href="https://github.com/etkramer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Eli Kramer
-        </a>
-      </p>
-      <p>
         Inspired by{" "}
         <a
           href="https://www.willitsnowinpdx.com"
@@ -45,7 +35,17 @@ function Footer() {
         </a>
       </p>
       <p>
-        Icons ©{" "}
+        Weather data from{" "}
+        <a
+          href="https://open-meteo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open-Meteo
+        </a>
+      </p>
+      <p>
+        Icons from{" "}
         <a
           href="https://www.iconfinder.com/iconsets/weather-line-19"
           target="_blank"
@@ -54,16 +54,6 @@ function Footer() {
           Fatkhul Karim
         </a>{" "}
         under Creative Commons 3.0
-      </p>
-      <p>
-        Forecast provided by{" "}
-        <a
-          href="https://open-meteo.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open-Meteo
-        </a>
       </p>
     </FooterWrapper>
   );
